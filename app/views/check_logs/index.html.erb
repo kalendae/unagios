@@ -1,0 +1,22 @@
+<h1>Listing check_logs</h1>
+
+<table>
+  <tr>
+    <th>Failed</th>
+    <th>Output</th>
+  </tr>
+
+<% @check_logs.each do |check_log| %>
+  <tr>
+    <td><%=h check_log.failed %></td>
+    <td><%=h check_log.output %></td>
+    <td><%= link_to 'Show', check_log %></td>
+    <td><%= link_to 'Edit', edit_check_log_path(check_log) %></td>
+    <td><%= link_to 'Destroy', check_log, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New check_log', new_check_log_path %>

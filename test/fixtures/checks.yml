@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  execution_code: MyText
+  check_regex: MyText
+  time_between_normal_checks: 1
+  time_between_failed_checks: 1
+  fails_before_notify: 1
+
+two:
+  execution_code: MyText
+  check_regex: MyText
+  time_between_normal_checks: 1
+  time_between_failed_checks: 1
+  fails_before_notify: 1

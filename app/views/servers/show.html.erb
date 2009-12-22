@@ -1,0 +1,28 @@
+<p>
+  <b>Address:</b>
+  <%=h @server.address %>
+</p>
+
+<p>
+  <b>Port:</b>
+  <%=h @server.port %>
+</p>
+
+<p>
+  <b>Username:</b>
+  <%=h @server.username %>
+</p>
+
+<p>
+  <b>Password:</b>
+  <%=h @server.password %>
+</p>
+
+<p>
+  <b>Su password:</b>
+  <%=h @server.su_password %>
+</p>
+
+
+<%= link_to 'Edit', edit_server_path(@server) %> |
+<%= link_to 'Back', servers_path %>

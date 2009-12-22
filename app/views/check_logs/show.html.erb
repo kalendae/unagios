@@ -1,0 +1,13 @@
+<p>
+  <b>Failed:</b>
+  <%=h @check_log.failed %>
+</p>
+
+<p>
+  <b>Output:</b>
+  <%=h @check_log.output %>
+</p>
+
+
+<%= link_to 'Edit', edit_check_log_path(@check_log) %> |
+<%= link_to 'Back', check_logs_path %>

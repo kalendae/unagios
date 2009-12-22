@@ -1,0 +1,32 @@
+<h1>Editing check</h1>
+
+<% form_for(@check) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :execution_code %><br />
+    <%= f.text_area :execution_code %>
+  </p>
+  <p>
+    <%= f.label :check_regex %><br />
+    <%= f.text_area :check_regex %>
+  </p>
+  <p>
+    <%= f.label :time_between_normal_checks %><br />
+    <%= f.text_field :time_between_normal_checks %>
+  </p>
+  <p>
+    <%= f.label :time_between_failed_checks %><br />
+    <%= f.text_field :time_between_failed_checks %>
+  </p>
+  <p>
+    <%= f.label :fails_before_notify %><br />
+    <%= f.text_field :fails_before_notify %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @check %> |
+<%= link_to 'Back', checks_path %>

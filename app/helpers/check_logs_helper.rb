@@ -1,0 +1,2 @@
+module CheckLogsHelper
+end

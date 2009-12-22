@@ -1,0 +1,28 @@
+<h1>Listing checks</h1>
+
+<table>
+  <tr>
+    <th>Execution code</th>
+    <th>Check regex</th>
+    <th>Time between normal checks</th>
+    <th>Time between failed checks</th>
+    <th>Fails before notify</th>
+  </tr>
+
+<% @checks.each do |check| %>
+  <tr>
+    <td><%=h check.execution_code %></td>
+    <td><%=h check.check_regex %></td>
+    <td><%=h check.time_between_normal_checks %></td>
+    <td><%=h check.time_between_failed_checks %></td>
+    <td><%=h check.fails_before_notify %></td>
+    <td><%= link_to 'Show', check %></td>
+    <td><%= link_to 'Edit', edit_check_path(check) %></td>
+    <td><%= link_to 'Destroy', check, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New check', new_check_path %>
