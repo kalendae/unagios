@@ -42,8 +42,8 @@ class Check < ActiveRecord::Base
   end
 
   def notify_contact cls
-    to = self.contacts.collect{|c|c.email}.join(", ")
-    to_display =  self.contacts.collect{|c|c.email}.join(", ")
+    to = self.contacts.collect{|c|c.email}
+    to_display =  self.contacts.collect{|c|"#{c.email} <#{c.email}>"}.join(", ")
     from = "monitor@adrocket.com"
     from_display = "monitoring"
     subject = "Monitoring Alert"
@@ -54,7 +54,7 @@ class Check < ActiveRecord::Base
     
     message = <<MESSAGE_END
 From: #{from_display} <#{from}>
-To: #{to_display} <#{to}>
+To: #{to_display}
 MIME-Version: 1.0
 Content-type: text/html
 Subject: #{subject}
