@@ -1,6 +1,7 @@
 class CreateChecks < ActiveRecord::Migration
   def self.up
     create_table :checks do |t|
+      t.string :nickname
       t.text :execution_code
       t.text :check_regex
       t.integer :time_between_normal_checks

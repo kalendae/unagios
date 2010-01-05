@@ -1,26 +1,40 @@
-<h1>New check</h1>
+<h1>Create a new monitor check</h1>
 
 <% form_for(@check) do |f| %>
   <%= f.error_messages %>
 
+  <p> Server(s) to apply this check to:
+    <% Server.find(:all).each do |s| %>
+      <input type="checkbox" name="server_<%= s.id %>" value="1"/> <%= s.nickname %> 
+    <% end %>
+  </p>
+  <p> Contact(s) to notify for this check:
+    <% Contact.find(:all).each do |c| %>
+      <input type="checkbox" name="contact_<%= c.id %>" value="1"/> <%= c.email %>
+    <% end %>
+  </p>
+  <p>
+    <%= f.label :nickname %><br />
+    <%= f.text_field :nickname %>
+  </p>
   <p>
     <%= f.label :execution_code %><br />
-    <%= f.text_area :execution_code %>
+    <%= f.text_area :execution_code, :cols => 100, :rows => 10 %>
   </p>
   <p>
     <%= f.label :check_regex %><br />
-    <%= f.text_area :check_regex %>
+    <%= f.text_area :check_regex, :cols => 100, :rows => 10  %>
   </p>
   <p>
-    <%= f.label :time_between_normal_checks %><br />
+    <%= f.label :time_between_normal_checks, "Time between normal checks in minutes" %><br />
     <%= f.text_field :time_between_normal_checks %>
   </p>
   <p>
-    <%= f.label :time_between_failed_checks %><br />
+    <%= f.label :time_between_failed_checks, "Time between failed checks in minutes" %><br />
     <%= f.text_field :time_between_failed_checks %>
   </p>
   <p>
-    <%= f.label :fails_before_notify %><br />
+    <%= f.label :fails_before_notify, "How many fails before notifying contacts (1 or less means notify on any fail immediately)" %><br />
     <%= f.text_field :fails_before_notify %>
   </p>
   <p>

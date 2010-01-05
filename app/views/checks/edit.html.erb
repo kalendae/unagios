@@ -3,6 +3,21 @@
 <% form_for(@check) do |f| %>
   <%= f.error_messages %>
 
+  <p> Server(s) to apply this check to:
+    <% Server.find(:all).each do |s| %>
+      <input type="checkbox" name="server_<%= s.id %>" value="1" <%= @check.servers.include?(s) ? 'CHECKED' : '' %>/> <%= s.nickname %>
+    <% end %>
+  </p>
+  <p> Contact(s) to notify for this check:
+    <% Contact.find(:all).each do |c| %>
+      <input type="checkbox" name="contact_<%= c.id %>" value="1" <%= @check.contacts.include?(c) ? 'CHECKED' : '' %>/> <%= c.email %>
+    <% end %>
+  </p>
+
+  <p>
+    <%= f.label :nickname %><br />
+    <%= f.text_field :nickname %>
+  </p>
   <p>
     <%= f.label :execution_code %><br />
     <%= f.text_area :execution_code %>

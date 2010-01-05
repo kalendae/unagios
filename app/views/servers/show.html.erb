@@ -1,4 +1,9 @@
 <p>
+  <b>Nickname:</b>
+  <%=h @server.nickname %>
+</p>
+
+<p>
   <b>Address:</b>
   <%=h @server.address %>
 </p>
@@ -15,12 +20,12 @@
 
 <p>
   <b>Password:</b>
-  <%=h @server.password %>
+  <%= @server.password.blank? ? '' : '****' %>
 </p>
 
 <p>
   <b>Su password:</b>
-  <%=h @server.su_password %>
+  <%= @server.su_password.blank? ? '' : '****' %>
 </p>
 
 

@@ -9,9 +9,11 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091222184052) do
+ActiveRecord::Schema.define(:version => 20091222230705) do
 
   create_table "check_logs", :force => true do |t|
+    t.integer  "check_id"
+    t.integer  "server_id"
     t.boolean  "failed"
     t.text     "output"
     t.datetime "created_at"
@@ -28,6 +30,16 @@ ActiveRecord::Schema.define(:version => 20091222184052) do
     t.datetime "updated_at"
   end
 
+  create_table "checks_contacts", :force => true do |t|
+    t.integer "contact_id"
+    t.integer "check_id"
+  end
+
+  create_table "checks_servers", :force => true do |t|
+    t.integer "server_id"
+    t.integer "check_id"
+  end
+
   create_table "contacts", :force => true do |t|
     t.string   "email"
     t.datetime "created_at"
@@ -35,6 +47,7 @@ ActiveRecord::Schema.define(:version => 20091222184052) do
   end
 
   create_table "servers", :force => true do |t|
+    t.string   "nickname"
     t.string   "address"
     t.string   "port"
     t.string   "username"

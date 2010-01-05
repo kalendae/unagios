@@ -1,6 +1,7 @@
 class CreateServers < ActiveRecord::Migration
   def self.up
     create_table :servers do |t|
+      t.string :nickname
       t.string :address
       t.string :port
       t.string :username

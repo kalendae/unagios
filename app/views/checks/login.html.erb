@@ -1,0 +1,10 @@
+<% if flash[:notice] %>
+      <div class="notice"><%= flash[:notice] %></div>
+<% end %>
+
+<form action="/login" method="post">
+    <h4>Password:</h4>
+    <input type="password" name="pw" id="pw"/>
+    <input type="submit"/>
+</form>
+

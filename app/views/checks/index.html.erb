@@ -2,6 +2,7 @@
 
 <table>
   <tr>
+    <th>Nickname</th>
     <th>Execution code</th>
     <th>Check regex</th>
     <th>Time between normal checks</th>
@@ -11,6 +12,7 @@
 
 <% @checks.each do |check| %>
   <tr>
+    <td><%=h check.nickname %></td>
     <td><%=h check.execution_code %></td>
     <td><%=h check.check_regex %></td>
     <td><%=h check.time_between_normal_checks %></td>

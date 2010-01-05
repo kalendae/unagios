@@ -2,6 +2,7 @@
 
 <table>
   <tr>
+    <th>Nickname</th>
     <th>Address</th>
     <th>Port</th>
     <th>Username</th>
@@ -11,11 +12,12 @@
 
 <% @servers.each do |server| %>
   <tr>
+    <td><%=h server.nickname %></td>
     <td><%=h server.address %></td>
     <td><%=h server.port %></td>
     <td><%=h server.username %></td>
-    <td><%=h server.password %></td>
-    <td><%=h server.su_password %></td>
+    <td><%= server.password.blank? ? '' : '****' %></td>
+    <td><%= server.su_password.blank? ? '' : '****' %></td>
     <td><%= link_to 'Show', server %></td>
     <td><%= link_to 'Edit', edit_server_path(server) %></td>
     <td><%= link_to 'Destroy', server, :confirm => 'Are you sure?', :method => :delete %></td>

@@ -2,7 +2,10 @@
 
 <% form_for(@server) do |f| %>
   <%= f.error_messages %>
-
+  <p>
+    <%= f.label :nickname %><br />
+    <%= f.text_field :nickname %>
+  </p>
   <p>
     <%= f.label :address %><br />
     <%= f.text_field :address %>
@@ -17,11 +20,11 @@
   </p>
   <p>
     <%= f.label :password %><br />
-    <%= f.text_field :password %>
+    <%= f.password_field :password %>
   </p>
   <p>
     <%= f.label :su_password %><br />
-    <%= f.text_field :su_password %>
+    <%= f.password_field :su_password %>
   </p>
   <p>
     <%= f.submit 'Update' %>
