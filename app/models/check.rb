@@ -12,7 +12,7 @@ class Check < ActiveRecord::Base
       r = ssh self.execution_code.split("\n")
       success = eval(self.check_regex)
       # make a log of it
-      cl = CheckLog.new(:check_id => self.id, :server_id => server.id, :failed => false, :output => r)
+      cl = CheckLog.new(:check_id => self.id, :server_id => server.id, :failed => !success, :output => r)
       cl.save!
       # notify if needed
       if !success
