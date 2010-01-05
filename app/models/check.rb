@@ -47,10 +47,11 @@ class Check < ActiveRecord::Base
     from = "monitor@adrocket.com"
     from_display = "monitoring"
     subject = "Monitoring Alert"
-    content = "The alert #{self.nickname} has failed #{cls.size} times.\r\n\r\n"
+    content = "The alert #{self.nickname} for server #{cls.last.server.nickname} has failed #{cls.size} times.<br/><br/><br/>Output: <textarea cols='100' rows='50'>"
     cls.each do |cl|
       content += cl.to_email
     end
+    content += "</textarea>"
     
     message = <<MESSAGE_END
 From: #{from_display} <#{from}>
