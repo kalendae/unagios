@@ -46,7 +46,7 @@ class Check < ActiveRecord::Base
     to_display =  self.contacts.collect{|c|"#{c.email} <#{c.email}>"}.join(", ")
     from = "monitor@adrocket.com"
     from_display = "monitoring"
-    subject = "Monitoring Alert - #{self.nickname}"
+    subject = "Monitoring Alert - #{self.nickname} - #{cls.last.server.nickname}"
     content = "The alert #{self.nickname} for server #{cls.last.server.nickname} has failed #{cls.size} times.<br/><br/><br/>Output: <textarea cols='100' rows='50'>"
     cls.each do |cl|
       content += cl.to_email
