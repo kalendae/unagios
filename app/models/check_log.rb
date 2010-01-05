@@ -1,5 +1,6 @@
 class CheckLog < ActiveRecord::Base
   belongs_to :check
+  belongs_to :server
 
   def to_email
     email_text = "Monitor check #{check.nickname} at #{created_at} #{self.failed ? "failed" : "succeeded"}\r\n"

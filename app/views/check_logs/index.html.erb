@@ -2,17 +2,21 @@
 
 <table>
   <tr>
-    <th>Failed</th>
+    <th>Time</th>
+    <th>Check</th>
+    <th>Server</th>
+    <th>Status</th>
     <th>Output</th>
   </tr>
 
 <% @check_logs.each do |check_log| %>
   <tr>
-    <td><%=h check_log.failed %></td>
-    <td><%=h check_log.output %></td>
+    <td><%= check_log.created_at %></td>
+    <td><%= check_log.check.nickname %></td>
+    <td><%= check_log.server.nickname %></td>
+    <td><%= check_log.failed ? 'FAIL' : 'OK' %></td>
+    <td><textarea rows="10" cols="100" disabled="1"><%=h check_log.output %></textarea></td>
     <td><%= link_to 'Show', check_log %></td>
-    <td><%= link_to 'Edit', edit_check_log_path(check_log) %></td>
-    <td><%= link_to 'Destroy', check_log, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
