@@ -2,7 +2,7 @@ class CheckLogsController < ApplicationController
   # GET /check_logs
   # GET /check_logs.xml
   def index
-    @check_logs = CheckLog.all
+    @check_logs = CheckLog.all(:order => 'id desc', :limit => 100)
 
     respond_to do |format|
       format.html # index.html.erb
