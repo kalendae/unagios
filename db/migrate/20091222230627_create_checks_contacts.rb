@@ -6,5 +6,6 @@ class CreateChecksContacts < ActiveRecord::Migration
   end
 
   def self.down
+    drop_table :checks_contacts
   end
 end

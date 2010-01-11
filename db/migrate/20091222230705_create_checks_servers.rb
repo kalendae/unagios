@@ -6,5 +6,6 @@ class CreateChecksServers < ActiveRecord::Migration
   end
 
   def self.down
+    drop_table :checks_servers
   end
 end
