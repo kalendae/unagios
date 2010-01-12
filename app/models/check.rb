@@ -10,7 +10,12 @@ class Check < ActiveRecord::Base
     self.servers.each do |server|
       @current_server = server
       r = ssh self.execution_code.split("\n")
-      success = eval(self.check_regex)
+
+      # define a check_result instance method using the check_regex and run it
+      # this way return true and return false can be used in the code blocks to mark success and failure
+      instance_eval "def check_result\r\n#{self.check_regex}\r\nend"
+      success = check_result
+
       # make a log of it
       cl = CheckLog.new(:check_id => self.id, :server_id => server.id, :failed => !success, :output => r)
       cl.save!
@@ -23,6 +28,10 @@ class Check < ActiveRecord::Base
         end
       end
     end
+  end
+
+  def check_result
+    return true
   end
 
   def ssh strs
